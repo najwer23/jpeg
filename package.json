@@ -11,7 +11,7 @@
     "test": "gulp test",
     "start": "gulp serve",
     "build": "gulp build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages"
   },
   "author": {
     "name": "Mariusz Najwer",
