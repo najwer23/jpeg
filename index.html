@@ -123,16 +123,38 @@
 				<p>Next we apply a quantization const block 8x8 to \(G(k)\), which filters out the high frequency DCT coefficients. We do this for every 8x8 block</p>
 				<p>- We increase the number of zeros in the picture.</p>
 				<p>- Cr value and Cb value are downsampled.</p>
+				<p>- We are losing data</p>
 			</section>
-
-
-
-
-
+			<section>
+				<h3>Huffman coding  from a quantization</h3>
+				<img src="dist/img/huffman.PNG">
+			</section>
+			<section>
+				<h3>JPG vs PNG</h3>
+				<img src="dist/img/compare.PNG" alt="">
+			</section>
+			<section>
+				<img src="dist/img/jpg_vs_png.png" alt="">
+			</section>
+			<section>
+				<h3>How JPEG can be loaded?</h3>
+				<ul>
+					<li>Baseline (PC encoding)</li>
+					<li>Progressive (Web encoding)</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Baseline JPEG</h3>
+				<img src="dist/img/1.png" alt="">
+			</section>
+			<section>
+				<h3>Progressive JPEG</h3>
+				<img src="dist/img/2.png" alt="">
+			</section>
 			<section>
 				<h3>Advantages of JPEG</h3>
 				<ol>
-					<li>Pretty good quality to original picture and less disk space</li>
+					<li>Less disk space</li>
 					<li>For landscapes</li>
 					<li>For web application (80% of images on Internet)</li>
 					<li>Big support devices</li>
@@ -142,7 +164,26 @@
 				<h3>Disadvantages of JPEG</h3>
 				<ol>
 					<li>Bad for fonts, technical images and brand logo (artefacts)</li>
+					<li>JPEG can't support transparency because it uses RGB color space</li>
 				</ol>
+			</section>
+			<section>
+				<h3>Thank you</h3>
+			</section>
+			<section>
+				<p >
+					<ul style="
+					inline-size: 90%;
+    				overflow-wrap: break-word;"
+					>
+						<li>https://www.youtube.com/watch?v=Q2aEzeMDHMA&t=798s&ab_channel=Computerphile</li>
+						<li>http://pi.math.cornell.edu/~web6140/TopTenAlgorithms/JPEG.html</li>
+						<li>https://www.youtube.com/watch?v=Kv1Hiv3ox8I&t=703s&ab_channel=BranchEducation</li>
+						<li>https://en.wikipedia.org/wiki/JPEG</li>
+						<li>https://medium.com/hd-pro/jpeg-formats-progressive-vs-baseline-73b3938c2339</li>
+					</ul>
+				</p>
+				
 			</section>
 		</div>
 	</div>
