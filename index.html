@@ -1,44 +1,126 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/night.css">
+	<title>JPEG</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h3>JPEG: Image compression algorithm</h3>
-					<h4>Mariusz Najwer</h4>
-				</section>
-				<section>Slide 2</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/night.css">
+	<link rel="stylesheet" href="dist/index.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h3>JPEG: Image compression algorithm</h3>
+				<h6>Mariusz Najwer</h6>
+				<h5>Wrocław, 1.01.2022</h5>
+			</section>
+			<section>
+				<h3>What is JPEG?</h3>
+				<p>
+					JPEG stands for Joint Photographic Experts Group, which was a group of image processing experts that
+					devised a standard for compressing images (ISO).
+				</p>
+			</section>
+			<section>
+				<p>
+					- JPEG (or JPG) is not really a file format but rather an image compression standard
+				</p>
+				<p>- JPEG is a lossy compression method</p>
+				<p>- The JPEG standard
+					is complicated with many different options and colour space regulations</p>
+			</section>
+			<section>
+				<h3>Lossy compression vs Lossless compression</h3>
+				<p>- Lossy compression is when the compression happens it losses data and it never cannot be remade to the
+					original image</p>
+				<p>- Lossless compression is it does not loose data when compression happens and it can be regenerated to
+					the original image</p>
+			</section>
+			<section>
+				<p>
+					The JPEG algorithm is designed specifically for the human eye. It exploits the following biological
+					properties of human
+					sight <br> <br>
+				<p style="font-size: 2rem;">
+					- We are more sensitive to the illuminocity of color (100 Milion Rods in eye), rather than the
+					chromatric value of an image (6 Million Cones in eye).
+				</p>
+				<p style="font-size: 2rem;">
+					- We are not particularly sensitive to high-frequency content in images.
+				</p>
+				</p>
+			</section>
+			<section>
+				<h3>The algorithm</h3>
+				<p>
+					1. Colour Conversion (RGB to YCbCr)<br>
+					2. A 2D discrete cosine transform <br>
+					3. A quantization (filtering) stage <br>
+					4. Huffman encoding
+				</p>
+			</section>
+			<section>
+				<h3>1. Colour Conversion (RGB to YCbCr)</h3>
+				<p>RGB: <br>
+					R - Red,
+					G - Green, B - Blue</p>
+				<p>YCbCr: <br>Y - brightness of the image, <br>CB - blue difference relative to the green colour, <br>Cr - red difference relative to the red colour</p>
+				<p></p>
+			</section>
+			<section>
+				<h3>1. Colour Conversion (RGB to YCbCr)</h3>
+				<p style="font-size:x-large">
+				\[
+				\begin{bmatrix}
+				Y & Cb & Cr 
+				\end{bmatrix}
+				
+				=
+
+				\begin{bmatrix}
+				R & G & B
+				\end{bmatrix}
+
+				* 
+
+				\begin{bmatrix}
+				0.299 & -0.168935 & 0.499813 \\
+				0.587 & -0.331665 & -0418531 \\
+				0.114 & 0.50059 & -081282
+				\end{bmatrix}
+				\]
+				</p>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
 </html>
