@@ -32,19 +32,20 @@
 				</p>
 			</section>
 			<section>
-				<p>
-					- JPEG (or JPG) is not really a file format but rather an image compression standard
-				</p>
-				<p>- JPEG is a lossy compression method</p>
-				<p>- The JPEG standard
-					is complicated with many different options and colour space regulations</p>
+				<ul>
+					<li>JPEG (or JPG) is not really a file format but rather an image compression standard</li>
+					<li>JPEG is a lossy compression method</li>
+					<li>The JPEG standard
+					is complicated with many different options and colour space regulations</li>
 			</section>
 			<section>
 				<h3>Lossy compression vs Lossless compression</h3>
-				<p>- Lossy compression is when the compression happens it losses data and it never cannot be remade to the
-					original image</p>
-				<p>- Lossless compression is it does not loose data when compression happens and it can be regenerated to
-					the original image</p>
+				<ul>
+					<li>Lossy compression is when the compression happens it losses data and it never cannot be remade to the
+					original image</li>
+					<li>Lossless compression is it does not loose data when compression happens and it can be regenerated to
+					the original image</li>
+				</ul>
 			</section>
 			<section>
 				<p>
@@ -52,33 +53,32 @@
 					properties of human
 					sight <br> <br>
 				<p style="font-size: 2rem;">
-					- We are more sensitive to the illuminocity of color (100 Milion Rods in eye), rather than the
-					chromatric value of an image (6 Million Cones in eye).
+					We are more sensitive to the illuminocity of color (100 Milion Rods in eye), rather than the
+					colour (6 Million Cones in eye).
 				</p>
 				<p style="font-size: 2rem;">
-					- We are not particularly sensitive to high-frequency content in images.
+					We are not particularly sensitive to high-frequency content in images (contours).
 				</p>
 				</p>
 			</section>
 			<section>
 				<h3>The algorithm</h3>
-				<p>
-					1. Colour Conversion (RGB to YCbCr)<br>
-					2. A 2D discrete cosine transform <br>
-					3. A quantization (filtering) stage <br>
-					4. Huffman encoding
+				<ol>
+					<li>Colour Conversion (RGB to YCbCr)</li>
+					<li>A 2D discrete cosine transform</li>
+					<li>A quantization (filtering) stage</li>
+					<li>Huffman encoding</li>
+				</ol>
 				</p>
 			</section>
 			<section>
-				<h3>1. Colour Conversion (RGB to YCbCr)</h3>
+				<h3>Colour Conversion (RGB to YCbCr)</h3>
 				<p>RGB: <br>
-					R - Red,
-					G - Green, B - Blue</p>
+					R - Red, G - Green, B - Blue</p>
 				<p>YCbCr: <br>Y - brightness of the image, <br>CB - blue difference relative to the green colour, <br>Cr - red difference relative to the red colour</p>
 				<p></p>
 			</section>
 			<section>
-				<h3>1. Colour Conversion (RGB to YCbCr)</h3>
 				<p style="font-size:x-large">
 				\[
 				\begin{bmatrix}
@@ -100,6 +100,49 @@
 				\end{bmatrix}
 				\]
 				</p>
+				<p>Just transform pixel from space colour to another space colour with matrix</p>
+			</section>
+			<section>
+				<h3>A 2D discrete cosine transform</h3>
+				<p>We need to cut image for 8x8 blocks of pixels \(g(m),\) then make 2D DST on these blocks</p>
+				<p>
+					
+					\[
+
+					\ G(k) = \sqrt{\smash[b]{\frac{2} {N}}} \sum_{n=1}^{\ N - 1} g(m)cos(\frac {\pi k (2m+1)} {2 N})
+
+					\]
+
+					\[
+					k=1,2,...,N-1,
+					\]
+				</p>
+			</section>
+			<section>
+				<h3>A quantization</h3>
+				<p>Next we apply a quantization const block 8x8 to \(G(k)\), which filters out the high frequency DCT coefficients. We do this for every 8x8 block</p>
+				<p>- We increase the number of zeros in the picture.</p>
+				<p>- Cr value and Cb value are downsampled.</p>
+			</section>
+
+
+
+
+
+			<section>
+				<h3>Advantages of JPEG</h3>
+				<ol>
+					<li>Pretty good quality to original picture and less disk space</li>
+					<li>For landscapes</li>
+					<li>For web application (80% of images on Internet)</li>
+					<li>Big support devices</li>
+				</ol>
+			</section>
+			<section>
+				<h3>Disadvantages of JPEG</h3>
+				<ol>
+					<li>Bad for fonts, technical images and brand logo (artefacts)</li>
+				</ol>
 			</section>
 		</div>
 	</div>
